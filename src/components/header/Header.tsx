@@ -1,12 +1,19 @@
 import Link, { LinkProps } from "next/link";
 import React, { JSX, memo, ReactElement } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
-import { EMAIL_LINK, GITHUB_LINK, LINKEDIN_LINK } from "@/constants";
+import {
+  CONTACT_ME_LINK,
+  EMAIL_LINK,
+  GITHUB_LINK,
+  LINKEDIN_LINK,
+  PROJECTS_LINK,
+} from "@/constants";
 
 const NavLinks = ({
   children,
   navClassName = "",
   contentClassName = "",
+  ...rest
 }: {
   children: ReactElement<LinkProps> | JSX.Element[];
   navClassName?: string;
@@ -31,11 +38,18 @@ const NavLinks = ({
         }),
     );
   });
-  return <div className="flex flex-row gap-8">{navLinks}</div>;
+  return (
+    <div className="flex flex-row gap-8" {...rest}>
+      {navLinks}
+    </div>
+  );
 };
 
 const SocialNavLinks = () => (
-  <NavLinks contentClassName="hover:text-green-200">
+  <NavLinks
+    contentClassName="hover:text-green-200"
+    data-testid="social-nav-links"
+  >
     <Link href={EMAIL_LINK}>
       <FaEnvelope />
     </Link>
@@ -49,9 +63,12 @@ const SocialNavLinks = () => (
 );
 
 const AppNavLinks = () => (
-  <NavLinks contentClassName="hover:underline hover:text-white">
-    <Link href="/projects">Projects</Link>
-    <Link href="/contact-me">Contact me</Link>
+  <NavLinks
+    contentClassName="hover:underline hover:text-white"
+    data-testid="app-nav-links"
+  >
+    <Link href={PROJECTS_LINK}>Projects</Link>
+    <Link href={CONTACT_ME_LINK}>Contact me</Link>
   </NavLinks>
 );
 
