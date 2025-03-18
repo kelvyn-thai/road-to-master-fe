@@ -1,6 +1,6 @@
-import { Layout } from "@/components/layout";
 import { faker } from "@faker-js/faker";
 import { v4 } from "uuid";
+import { Layout } from "@/components/layout";
 
 type Post = {
   id: string;

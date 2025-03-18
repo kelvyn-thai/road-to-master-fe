@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint --no-cache"
   },
   "dependencies": {
     "@faker-js/faker": "^9.6.0",
@@ -24,6 +24,12 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.2.2",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "prettier": "^3.5.3",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
