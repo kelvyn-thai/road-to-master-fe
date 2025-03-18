@@ -1,3 +1,2 @@
-yarn lint
-yarn test
+ yarn lint && yarn type-check && yarn test && yarn prettier
 
