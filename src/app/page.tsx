@@ -1,12 +1,14 @@
-import Link from "next/link";
+import { Layout } from "@/components/layout";
+import { redisConfig } from "@/config/redis.config";
 
 export default function Home() {
+  console.info({ redisConfig });
   return (
-    <main>
-      <h1>Helcome to our Homepage</h1>
-      <Link href="/about">About</Link>
-      <Link href="/posts/1">Post 1</Link>
-      <Link href="/posts/2">Post 2</Link>
-    </main>
+    <Layout>
+      <h1 className="text-3xl leading-8 font-bold mb-4">
+        Welcome to our Homepage
+      </h1>
+      {process.env.NEXT_PUBLIC_API_KEY}
+    </Layout>
   );
 }

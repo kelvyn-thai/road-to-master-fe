@@ -1,3 +1,4 @@
+import { Layout } from "@/components/layout";
 import { faker } from "@faker-js/faker";
 import { v4 } from "uuid";
 
@@ -37,11 +38,11 @@ export default async function Post({
   }
 
   return (
-    <div>
-      <h2>{foundPost.title}</h2>
+    <Layout>
+      <h1>{foundPost.title}</h1>
       <p>{foundPost.content}</p>
       <p>{foundPost.author}</p>
       <p>{foundPost.date}</p>
-    </div>
+    </Layout>
   );
 }
