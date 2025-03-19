@@ -73,7 +73,7 @@ const AppNavLinks = () => (
 );
 
 export default memo(() => (
-  <div className="px-8 py-4 bg-gray-900 text-white">
+  <div className="px-8 py-4 bg-[#18181C] text-white">
     <div className="flex flex-row justify-between gap-5">
       <SocialNavLinks />
       <AppNavLinks />
