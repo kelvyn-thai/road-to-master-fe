@@ -9,7 +9,6 @@ export default function Page() {
       >
         Welcome to our Homepage
       </h1>
-      {process.env.NEXT_PUBLIC_API_KEY}
     </Layout>
   );
 }
