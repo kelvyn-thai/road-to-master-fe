@@ -1,45 +1,44 @@
 import Image from "next/image";
+import { use } from "react";
 import {
+  UserEntity,
   GetUserResponseDTO,
   GetUserResponseSchema,
-  UserEntity,
 } from "@/schemas/github";
-import githubService from "@/services/Github.services";
+import { GreetingWrapper } from "./components";
 
-async function Greeting() {
-  const res: UserEntity = await githubService.getUserInfo("kelvyn-thai");
+function Greeting({ userInfo }: { userInfo: Promise<UserEntity> }) {
+  const res = use(userInfo);
 
   const data: GetUserResponseDTO = GetUserResponseSchema.parse(res);
 
-  if (!data) {
-    return null;
-  }
-
   return (
-    <section
-      className="w-full h-[calc(100vh_-_56px)] bg-[#2A4365] relative"
-      data-testid="greeting-section"
-    >
-      <div className="absolute-center text-center flex flex-col items-center gap-4">
-        <Image
-          width={128}
-          height={128}
-          alt={"My avatar"}
-          src={data.avatar_url}
-          className="rounded-full"
-          data-testid="avatar"
-        />
-        <p className="text-base font-medium mb-10" data-testid="name">
-          Hello, I am {data.name}
-        </p>
-        <h2
-          className="text-5xl leading-6xl font-bold m-w-[550px]"
-          data-testid="bio"
-        >
-          {data.bio}
-        </h2>
-      </div>
-    </section>
+    <GreetingWrapper>
+      {data && (
+        <div className="absolute-center text-center flex flex-col items-center gap-4">
+          <Image
+            width={128}
+            height={128}
+            alt={"My avatar"}
+            src={data.avatar_url}
+            className="rounded-full"
+            data-testid="avatar"
+          />
+          <p
+            className="text-base  text-neutral-800 font-medium mb-8"
+            data-testid="name"
+          >
+            Hello, I am {data.name}
+          </p>
+          <h2
+            className="text-5xl text-neutral-1000 leading-6xl font-bold m-w-[550px]"
+            data-testid="bio"
+          >
+            {data.bio}
+          </h2>
+        </div>
+      )}
+    </GreetingWrapper>
   );
 }
 

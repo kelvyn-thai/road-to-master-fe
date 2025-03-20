@@ -100,32 +100,26 @@ module.exports = {
       },
       colors: {
         primary: {
-          0: "#f2f6f6", // text-primary-0; border-primary-0; ...
-          1: "#f5faf9",
-          3: "#7ccec1",
-          4: "#4FB1AB",
-          5: "#e4f5f1",
-          6: "#0f6d77",
-          10: "#d3f0ea",
-          20: "#ABDFD6",
-          40: "#4FB1AB",
-          50: "#289194",
-          60: "#0F6D77",
-          70: "#034d5a", // text-primary-70; border-primary-70; ...
+          100: "#ECFDF5", // Very light cyan-green (calm & refreshing)
+          200: "#D1FAE5", // Soft mint green (balance & harmony)
+          300: "#A7F3D0", // Bright pastel green (growth & energy)
+          400: "#6EE7B7", // Vibrant green (success & vitality)
+          500: "#34D399", // Classic green (pure Wood element)
+          600: "#059669", // Deep teal green (stability & focus)
+          700: "#047857", // Darker green (wisdom & endurance)
+          800: "#065F46", // Rich green-teal mix
         },
         neutral: {
-          0: "#ffffff",
-          1: "#fffaf8",
-          3: "#f6f9fc",
-          5: "#eef1f4",
-          10: "#dde3e8",
-          20: "#c0c8d0",
-          30: "#a5aeb7",
-          40: "#8b949e",
-          50: "#727c85",
-          60: "#5a636d",
-          70: "#444c54",
-          80: "#2d3034",
+          100: "#f6f9fc",
+          200: "#eef1f4",
+          300: "#dde3e8",
+          400: "#c0c8d0",
+          500: "#a5aeb7",
+          600: "#8b949e",
+          700: "#727c85",
+          800: "#5a636d",
+          900: "#444c54",
+          1000: "#2d3034",
         },
         error: {
           0: "#fff7f7",

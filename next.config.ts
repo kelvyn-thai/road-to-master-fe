@@ -14,6 +14,15 @@ const nextConfig: NextConfig = {
   eslint: {
     dirs: ["src"],
   },
+  // experimental: {
+  //   dynamicIO: true,
+  //   useCache: true,
+  // },
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
 };
 
 export default nextConfig;
