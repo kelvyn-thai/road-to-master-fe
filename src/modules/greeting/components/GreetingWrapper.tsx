@@ -5,12 +5,5 @@ export default function GreetingWrapper({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <section
-      className="w-full h-[calc(100vh_-_56px)] bg-primary-100 relative"
-      data-testid="greeting-section"
-    >
-      {children}
-    </section>
-  );
+  return <section data-testid="greeting-section">{children}</section>;
 }

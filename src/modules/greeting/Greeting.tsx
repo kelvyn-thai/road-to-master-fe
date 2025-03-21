@@ -4,7 +4,7 @@ import {
   UserEntity,
   GetUserResponseDTO,
   GetUserResponseSchema,
-} from "@/schemas/github";
+} from "@/schemas";
 import { GreetingWrapper } from "./components";
 
 function Greeting({ userInfo }: { userInfo: Promise<UserEntity> }) {

@@ -10,7 +10,9 @@ export default function Layout({
   return (
     <div>
       <Header />
-      <main>{children}</main>
+      <main className="w-full h-[calc(100vh_-_56px)] bg-primary-100 relative text-neutral-800">
+        {children}
+      </main>
       <Footer />
     </div>
   );

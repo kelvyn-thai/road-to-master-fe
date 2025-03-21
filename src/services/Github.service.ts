@@ -1,6 +1,6 @@
-import { UserEntity, UserEntitySchema } from "@/schemas/github";
+import { UserEntity, UserEntitySchema } from "@/schemas";
 // TODO: inheritance from axios instance and use interceptor to authenticate, authorization, validate schema,...
-export class GithubService {
+export default class GithubService {
   // TODO: find the way to validate request / response dto
   async getUserInfo(username: string): Promise<UserEntity> {
     const url = `https://api.github.com/users/${username}`;
@@ -14,6 +14,4 @@ export class GithubService {
   }
 }
 
-const githubService = new GithubService();
-
-export default githubService;
+export const githubService = new GithubService();

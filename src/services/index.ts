@@ -1,3 +1,5 @@
-export * from "./AuthServices";
-export { default as AuthServices } from "./AuthServices";
-export { default as GithubService } from "./Github.services";
+export * from "./auth.service";
+export { default as AuthServices } from "./auth.service";
+
+export * from "./github.service";
+export { default as GithubService } from "./github.service";

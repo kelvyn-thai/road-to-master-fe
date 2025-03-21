@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { UserEntitySchema } from "./User.schema";
+import { UserEntitySchema } from "./user.schema";
 
 export const GetUserResponseSchema = UserEntitySchema.pick({
   avatar_url: true,

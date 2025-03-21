@@ -5,8 +5,8 @@ import {
   GreetingSkeleton,
   GreetingWrapper,
 } from "@/modules/greeting";
-import { UserEntity } from "@/schemas/github";
-import githubService from "@/services/Github.services";
+import { UserEntity } from "@/schemas";
+import { githubService } from "@/services";
 
 export const revalidate = 180;
 

@@ -3,8 +3,8 @@ import { faker } from "@faker-js/faker";
 import { http, HttpResponse } from "msw";
 import { setupServer, SetupServerApi } from "msw/node";
 import request from "supertest";
-import { UserEntity } from "@/schemas/github";
-import githubService, { GithubService } from "@/services/Github.services";
+import { UserEntity } from "@/schemas";
+import { GithubService, githubService } from "@/services";
 
 describe("Test APP", () => {
   let server: SetupServerApi;
