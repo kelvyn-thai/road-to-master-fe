@@ -1,3 +1,5 @@
+import { Layout } from "@/components/layout";
+
 interface Post {
   id: string;
   title: string;
@@ -32,9 +34,11 @@ export default async function Page({
     (res) => res.json(),
   );
   return (
-    <main>
-      <h1>{post.title}</h1>
-      <p>{post.content}</p>
-    </main>
+    <Layout>
+      <div className="text-neutral-900">
+        <h1>{post.title}</h1>
+        <p>{post.content}</p>
+      </div>
+    </Layout>
   );
 }

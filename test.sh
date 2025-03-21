@@ -1,6 +1,6 @@
 #!/bin/bash
 
-yarn test &
+yarn jest:test &
 
 # Start the server in the background
 yarn dev &

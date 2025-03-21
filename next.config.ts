@@ -23,6 +23,9 @@ const nextConfig: NextConfig = {
       fullUrl: true,
     },
   },
+  experimental: {
+    nodeMiddleware: true,
+  },
 };
 
 export default nextConfig;

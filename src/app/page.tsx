@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { Layout } from "@/components/layout";
 import {
-  Greeting,
+  GreetingSection,
   GreetingSkeleton,
   GreetingWrapper,
 } from "@/modules/greeting";
@@ -23,7 +23,7 @@ export default async function Page() {
           </GreetingWrapper>
         }
       >
-        <Greeting userInfo={userInfo} />{" "}
+        <GreetingSection userInfo={userInfo} />{" "}
       </Suspense>
     </Layout>
   );
