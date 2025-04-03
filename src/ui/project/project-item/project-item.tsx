@@ -1,3 +1,4 @@
+import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Link from "next/link";
 import { GetProjectListResponse } from "@/schemas";
@@ -29,7 +30,10 @@ function ProjectItem({
         <p className="lg:text-base xs:text-sm text-neutral-700 mb-1 truncate">
           {shortDescription}
         </p>
-        <p className="text-black font-bold text-sm hover:underline">See more</p>
+        <span className="text-black font-bold text-sm hover:underline inline-flex items-center">
+          See more
+          <ArrowRightIcon className="ml-1 h-4 w-4 font-bold" />
+        </span>
       </div>
     </Link>
   );
