@@ -1,5 +1,5 @@
 import { Layout } from "@/components/layout";
-import { FormCreatePost } from "@/ui";
+import { FormCreatePost } from "@/ui/posts";
 
 const PostsPage = () => {
   return (

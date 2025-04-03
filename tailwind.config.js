@@ -1,5 +1,5 @@
 const screens = {
-  mobile: "320px",
+  xs: "480px",
   tablet: "640px",
   laptop: "1150px",
   desktop: "1280px",
@@ -108,6 +108,7 @@ module.exports = {
           600: "#059669", // Deep teal green (stability & focus)
           700: "#047857", // Darker green (wisdom & endurance)
           800: "#065F46", // Rich green-teal mix
+          900: "#15522D",
         },
         neutral: {
           100: "#f6f9fc",

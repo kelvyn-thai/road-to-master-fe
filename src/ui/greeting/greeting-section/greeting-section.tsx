@@ -1,19 +1,15 @@
 import Image from "next/image";
 import { use } from "react";
-import {
-  UserEntity,
-  GetUserResponseDTO,
-  GetUserResponseSchema,
-} from "@/schemas";
-import { GreetingWrapper } from "./components";
+import { GetUserResponseDTO, GetUserResponseSchema } from "@/schemas";
+import { githubService } from "@/services";
 
-function Greeting({ userInfo }: { userInfo: Promise<UserEntity> }) {
-  const res = use(userInfo);
+function Greeting() {
+  const res = use(githubService.getUserInfo("kelvyn-thai"));
 
   const data: GetUserResponseDTO = GetUserResponseSchema.parse(res);
 
   return (
-    <GreetingWrapper>
+    <>
       {data && (
         <div className="absolute-center text-center flex flex-col items-center gap-4">
           <Image
@@ -38,7 +34,7 @@ function Greeting({ userInfo }: { userInfo: Promise<UserEntity> }) {
           </h2>
         </div>
       )}
-    </GreetingWrapper>
+    </>
   );
 }
 
