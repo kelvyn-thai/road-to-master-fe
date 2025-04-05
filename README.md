@@ -28,6 +28,7 @@ In the project directory, you can run:
 - Structure project followed by: [nextjs](https://nextjs.org/docs/getting-started)
 - Manage build, deploy, start,...: [next](https://www.npmjs.com/package/next)
 - Cascading Style Sheets: [Tailwindcss](https://tailwindcss.com/)
+- UI Core: [shadcn](https://ui.shadcn.com)
 - Find, fix, format, v...v problems in JavaScript code :
   - Eslint: https://eslint.org/
   - Husky: https://typicode.github.io/husky
