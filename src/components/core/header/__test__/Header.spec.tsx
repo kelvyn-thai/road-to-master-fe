@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import { fireEvent, render, screen } from "@testing-library/react";
-import { Header } from "@/components/header";
+import { Header } from "@/components/core/header";
 import {
   CONTACT_ME_LINK,
   EMAIL_LINK,

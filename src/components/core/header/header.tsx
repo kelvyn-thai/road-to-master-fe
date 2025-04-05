@@ -1,8 +1,5 @@
-"use client";
-
-import { throttle } from "lodash";
 import Link, { LinkProps } from "next/link";
-import React, { JSX, memo, ReactElement, useEffect } from "react";
+import React, { JSX, ReactElement } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import {
   CONTACT_ME_LINK,
@@ -75,30 +72,7 @@ const AppNavLinks = () => (
   </NavLinks>
 );
 
-export default memo(() => {
-  useEffect(() => {
-    const $header = document.getElementById("header");
-    const threshold = 68;
-
-    const callback = throttle(() => {
-      const scrollTop = window.scrollY;
-      if (!$header) return;
-
-      if (scrollTop >= threshold) {
-        $header.classList.add(
-          "-translate-y-14",
-          "transition-all",
-          "duration-1000",
-          "ease-linear",
-        );
-      } else {
-        $header.classList.remove("-translate-y-14");
-      }
-    }, 168);
-
-    window.addEventListener("scroll", callback);
-    return () => window.removeEventListener("scroll", callback);
-  }, []);
+const Header = () => {
   return (
     <div id="header" className="px-4% py-1% bg-[#18181C] text-white">
       <div className="flex flex-row justify-between gap-5">
@@ -107,4 +81,6 @@ export default memo(() => {
       </div>
     </div>
   );
-});
+};
+
+export default Header;

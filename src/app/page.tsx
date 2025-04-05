@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Layout } from "@/components/layout";
+import { Layout } from "@/components";
 import { ContactMeSection } from "@/ui/contact-me";
 import {
   GreetingSection,
