@@ -9,13 +9,11 @@ function ProjectSection() {
   );
 
   return (
-    <div>
-      <ProjectList>
-        {res.data.map((project) => (
-          <ProjectItem key={project.id} data={project} />
-        ))}
-      </ProjectList>
-    </div>
+    <ProjectList>
+      {res.data.map((project) => (
+        <ProjectItem key={project.id} data={project} />
+      ))}
+    </ProjectList>
   );
 }
 

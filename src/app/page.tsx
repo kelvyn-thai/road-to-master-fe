@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Layout } from "@/components/layout";
+import { ContactMeSection } from "@/ui/contact-me";
 import {
   GreetingSection,
   GreetingSkeleton,
@@ -22,6 +23,7 @@ export default async function Page() {
           <ProjectSection />
         </Suspense>
       </ProjectLayout>
+      <ContactMeSection />
     </Layout>
   );
 }

@@ -7,7 +7,7 @@ export default function GreetingLayout({
 }) {
   return (
     <section
-      className="h-[calc(100vh_-_56px)] relative min-h-[648px]"
+      className="h-[calc(100vh_-_56px)] relative min-h-648"
       data-testid="greeting-section"
     >
       {children}

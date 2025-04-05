@@ -44,6 +44,7 @@ const eslintConfig = [
       "jsx-a11y/anchor-is-valid": "warn",
       "jsx-a11y/no-autofocus": "warn",
       "jsx-a11y/click-events-have-key-events": "warn",
+      "jsx-a11y/heading-has-content": "warn",
 
       // ✅ React Hooks rules (moved to main rule block)
       "react-hooks/rules-of-hooks": "error", // Ensures hooks are used correctly
