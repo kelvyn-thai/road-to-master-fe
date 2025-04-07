@@ -1,7 +1,7 @@
 import { use } from "react";
+import { ProjectList, ProjectItem } from "@/modules/project";
 import { GetProjectListResponse } from "@/schemas";
 import { projectService } from "@/services";
-import { ProjectList, ProjectItem } from "@/ui/project";
 
 function ProjectSection() {
   const res: GetProjectListResponse = use(

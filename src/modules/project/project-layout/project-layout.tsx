@@ -1,5 +1,5 @@
 import { JSX } from "react";
-import { LandingLayout } from "@/ui/landing-layout";
+import { LandingLayout } from "@/modules/landing-layout";
 
 function ProjectLayout({ children }: { children: JSX.Element }) {
   return (

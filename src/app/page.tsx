@@ -1,12 +1,16 @@
 import { Suspense } from "react";
 import { Layout } from "@/components";
-import { ContactMeSection } from "@/ui/contact-me";
+import { ContactMeSection } from "@/modules/contact-me";
 import {
   GreetingSection,
   GreetingSkeleton,
   GreetingLayout,
-} from "@/ui/greeting";
-import { ProjectSection, ProjectLayout, ProjectSkeleton } from "@/ui/project";
+} from "@/modules/greeting";
+import {
+  ProjectSection,
+  ProjectLayout,
+  ProjectSkeleton,
+} from "@/modules/project";
 
 export default async function Page() {
   return (

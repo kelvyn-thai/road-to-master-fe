@@ -1,4 +1,4 @@
-import { ProjectList } from "@/ui/project";
+import { ProjectList } from "@/modules/project";
 
 function ProjectSkeleton() {
   return (
