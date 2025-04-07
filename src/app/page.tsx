@@ -8,8 +8,6 @@ import {
 } from "@/ui/greeting";
 import { ProjectSection, ProjectLayout, ProjectSkeleton } from "@/ui/project";
 
-export const revalidate = 180;
-
 export default async function Page() {
   return (
     <Layout>

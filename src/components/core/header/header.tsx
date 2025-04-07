@@ -4,6 +4,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import {
   CONTACT_ME_LINK,
   EMAIL_LINK,
+  getSectionId,
   GITHUB_LINK,
   LINKEDIN_LINK,
   PROJECTS_LINK,
@@ -13,17 +14,20 @@ const NavLinks = ({
   children,
   navClassName = "",
   contentClassName = "",
+  ssr = true,
   ...rest
 }: {
   children: ReactElement<LinkProps> | JSX.Element[];
   navClassName?: string;
   contentClassName?: string;
+  ssr?: boolean;
 }) => {
   const navLinks = React.Children.map(children, (navLink) => {
     const { children } = navLink.props;
 
     const content: JSX.Element =
       typeof children === "string" ? <span>{children}</span> : children;
+    const hash = getSectionId(navLink.props.href);
 
     return React.cloneElement(
       navLink,
@@ -31,6 +35,17 @@ const NavLinks = ({
         ...navLink.props,
         target: "_blank",
         className: navClassName,
+        ...(ssr
+          ? {}
+          : {
+              href: hash,
+              target: "",
+              scroll: false,
+              onClick: () => {
+                const el = document.querySelector(hash);
+                el?.scrollIntoView({ behavior: "smooth" });
+              },
+            }),
       } as LinkProps,
       typeof content !== "undefined" &&
         React.cloneElement(content, {
@@ -45,7 +60,7 @@ const NavLinks = ({
   );
 };
 
-const SocialNavLinks = () => (
+export const SocialNavLinks = () => (
   <NavLinks
     contentClassName="hover:text-green-200"
     data-testid="social-nav-links"
@@ -62,10 +77,11 @@ const SocialNavLinks = () => (
   </NavLinks>
 );
 
-const AppNavLinks = () => (
+export const AppNavLinks = ({ ssr }: { ssr: boolean }) => (
   <NavLinks
     contentClassName="hover:underline hover:text-white"
     data-testid="app-nav-links"
+    ssr={ssr}
   >
     <Link href={PROJECTS_LINK}>Projects</Link>
     <Link href={CONTACT_ME_LINK}>Contact me</Link>
@@ -77,7 +93,7 @@ const Header = () => {
     <div id="header" className="px-4% py-1% bg-[#18181C] text-white">
       <div className="flex flex-row justify-between gap-5">
         <SocialNavLinks />
-        <AppNavLinks />
+        <AppNavLinks ssr />
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ function ProjectLayout({ children }: { children: JSX.Element }) {
     <LandingLayout
       title="Feature projects"
       className="bg-primary-900"
-      id="project"
+      id="projects"
     >
       {children}
     </LandingLayout>

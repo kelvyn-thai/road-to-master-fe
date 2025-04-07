@@ -1,10 +1,13 @@
 "use client";
 
 import { throttle } from "lodash";
+import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
-import Header from "./header";
+import { AppNavLinks, SocialNavLinks } from "./header";
 
 export const HeaderCSR = () => {
+  const pathname = usePathname();
+
   useEffect(() => {
     const $header = document.getElementById("header");
     const threshold = 68;
@@ -28,5 +31,21 @@ export const HeaderCSR = () => {
     window.addEventListener("scroll", callback);
     return () => window.removeEventListener("scroll", callback);
   }, []);
-  return <Header />;
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const el = document.querySelector(hash);
+      el?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [pathname]);
+
+  return (
+    <div id="header" className="px-4% py-1% bg-[#18181C] text-white">
+      <div className="flex flex-row justify-between gap-5">
+        <SocialNavLinks />
+        <AppNavLinks ssr={false} />
+      </div>
+    </div>
+  );
 };
