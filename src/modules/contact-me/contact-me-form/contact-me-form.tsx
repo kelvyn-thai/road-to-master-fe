@@ -1,6 +1,5 @@
 "use client";
 
-import { faker } from "@faker-js/faker";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, type FieldErrors } from "react-hook-form";
 import { z } from "zod";
@@ -27,52 +26,62 @@ export const Types = ["hireMe", "openSource", "other"] as const;
 export type TypesEnum = (typeof Types)[number]; // or z.infer<typeof Types>
 
 const formSchema = z.object({
-  name: z.string().nonempty(),
-  email: z.string().email(),
+  name: z.string().nonempty("Required"),
+  email: z.string().nonempty("Required").email("Invalid email address"),
   type: z.enum(Types),
-  message: z.string().nonempty(),
+  message: z
+    .string()
+    .nonempty("Required")
+    .min(25, "Must be at least 25 characters"),
 });
 
 export type FormType = z.infer<typeof formSchema>;
+
+const defaultValues: FormType = {
+  name: "",
+  email: "",
+  type: "hireMe",
+  message: " ",
+} as const;
 
 function ContactMeForm() {
   const { toast } = useToast();
 
   const form = useForm<FormType>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: faker.person.fullName(),
-      email: faker.internet.email(),
-      type: faker.helpers.arrayElement(Types),
-      message: faker.lorem.paragraph(),
-    },
+    defaultValues,
     mode: "onChange",
   });
   const {
     handleSubmit,
     control,
-    formState: { isValid, isSubmitting },
+    formState: { isSubmitting },
+    reset,
   } = form;
 
   const onValid = async (data: FormType) => {
-    console.log({ data });
-    await delay(2000);
+    const isFetched = Math.random() > 0.5;
+    await delay(1000);
 
-    toast({
-      title: "All good!",
-      description: `Thanks for your submission ${data.name}, we will get back to you shortly!`,
-      variant: "success",
-    });
+    if (isFetched) {
+      toast({
+        title: "All good!",
+        description: `Thanks for your submission ${data.name}, we will get back to you shortly!`,
+        variant: "success",
+      });
+      reset(defaultValues);
+    } else {
+      toast({
+        title: "Oops!",
+        description: `Something went wrong, please try again later!`,
+        variant: "error",
+      });
+    }
   };
 
   const onInvalid = (errors: FieldErrors<FormType>) => {
     console.error({ errors });
-
-    toast({
-      title: "Oops!",
-      description: `Something went wrong, please try again later!`,
-      variant: "error",
-    });
+    return;
   };
 
   return (
@@ -165,7 +174,7 @@ function ContactMeForm() {
           className={cn(
             "mt-4 w-full bg-violet-500 hover:bg-violet-400 hover:shadow-xl",
           )}
-          disabled={!isValid || isSubmitting}
+          disabled={isSubmitting}
           isLoading={isSubmitting}
         >
           Submit

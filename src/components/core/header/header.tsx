@@ -1,5 +1,8 @@
+"use client";
+
+import { cx } from "class-variance-authority";
 import Link, { LinkProps } from "next/link";
-import React, { JSX, ReactElement } from "react";
+import React, { JSX, ReactElement, useImperativeHandle, useState } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import {
   CONTACT_ME_LINK,
@@ -60,7 +63,7 @@ const NavLinks = ({
   );
 };
 
-export const SocialNavLinks = () => (
+const SocialNavLinks = () => (
   <NavLinks
     contentClassName="hover:text-green-200"
     data-testid="social-nav-links"
@@ -77,7 +80,7 @@ export const SocialNavLinks = () => (
   </NavLinks>
 );
 
-export const AppNavLinks = ({ ssr }: { ssr: boolean }) => (
+const AppNavLinks = ({ ssr }: { ssr: boolean }) => (
   <NavLinks
     contentClassName="hover:underline hover:text-white"
     data-testid="app-nav-links"
@@ -88,15 +91,33 @@ export const AppNavLinks = ({ ssr }: { ssr: boolean }) => (
   </NavLinks>
 );
 
-const Header = () => {
+const Header = ({
+  ref,
+  children,
+}: {
+  ref: React.Ref<unknown>;
+  children: JSX.Element | JSX.Element[];
+}) => {
+  const [isVisible, setIsVisible] = useState(true);
+
+  useImperativeHandle(ref, () => ({ isVisible, setIsVisible }), [isVisible]);
+
   return (
-    <div id="header" className="px-4% py-1% bg-[#18181C] text-white">
-      <div className="flex flex-row justify-between gap-5">
-        <SocialNavLinks />
-        <AppNavLinks ssr />
-      </div>
+    <div
+      id="header"
+      className={cx(
+        "px-4% py-1% bg-[#18181C] text-white transition-all duration-1000 ease-linear",
+        {
+          " -translate-y-14": !isVisible,
+        },
+      )}
+    >
+      <div className="flex flex-row justify-between gap-5">{children}</div>
     </div>
   );
 };
+
+Header.SocialNavLinks = SocialNavLinks;
+Header.AppNavLinks = AppNavLinks;
 
 export default Header;

@@ -24,7 +24,8 @@ function Greeting() {
             className="text-white text-base font-medium mb-8"
             data-testid="name"
           >
-            Hello, I am {data.name}
+            {/* Hello, I am {data.name} */}
+            Hello, I am Pete!
           </p>
           <h2
             className="text-white text-5xl leading-6xl font-bold m-w-[550px]"
