@@ -7,9 +7,13 @@ export default function Layout({
   children: ReactElement | React.ReactNode;
 }) {
   return (
-    <div id="app" className="overflow-scroll bg-[rgb(43,66,100)]">
+    <div
+      id="app"
+      className="overflow-scroll bg-primary-200
+      bg-pr"
+    >
       <Header />
-      <main className="w-full relative text-neutral-800">{children}</main>
+      <main className="w-full relative text-black-500">{children}</main>
       <Footer />
     </div>
   );

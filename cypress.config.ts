@@ -13,7 +13,7 @@ export default defineConfig({
   },
   chromeWebSecurity: false,
   video: false,
-  screenshotOnRunFailure: true,
+  screenshotOnRunFailure: false,
   env: {
     NEXT_PUBLIC_DOMAIN_URL: process.env.NEXT_PUBLIC_DOMAIN_URL,
   },

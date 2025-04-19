@@ -21,14 +21,13 @@ function Greeting() {
             data-testid="avatar"
           />
           <p
-            className="text-white text-base font-medium mb-8"
+            className="text-neutral-800 text-base font-medium mb-8"
             data-testid="name"
           >
-            {/* Hello, I am {data.name} */}
-            Hello, I am Pete!
+            Hello, I am {data.name}
           </p>
           <h2
-            className="text-white text-5xl leading-6xl font-bold m-w-[550px]"
+            className="text-neutral-900 text-5xl leading-6xl font-bold m-w-[550px]"
             data-testid="bio"
           >
             {data.bio}

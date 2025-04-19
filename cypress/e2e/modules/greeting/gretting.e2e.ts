@@ -10,7 +10,7 @@ describe("Greeting", () => {
     cy.get("[data-testid=bio]").as("bio");
 
     cy.get("@name").should("exist");
-    cy.get("@name").should("contain.text", `Hello, I am Pete!`);
+    cy.get("@name").should("contain.text", `Hello, I am Kelvyn Thai`);
 
     cy.get("@bio").should("exist");
     cy.get("@bio").should(
